@@ -39,17 +39,17 @@ export function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col space-y-6 w-full max-w-sm mx-auto p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 shadow-sm transition-all">
+    <div className="flex flex-col space-y-6 w-full max-w-sm mx-auto p-6 bg-white dark:bg-neutral-900 rounded-lg border border-neutral-300 dark:border-neutral-800 shadow-sm transition-all">
       
       <div className="flex flex-col items-center space-y-2 text-center">
-        <div className="flex items-center gap-2 font-bold text-2xl text-stone-900 dark:text-stone-50">
-          <FaKaaba className="text-stone-900 dark:text-stone-50" />
+        <div className="flex items-center gap-2 font-bold text-2xl text-neutral-900 dark:text-neutral-50">
+          <FaKaaba className="text-neutral-900 dark:text-neutral-50" />
           Stock Flow
         </div>
-        <h1 className="text-xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">
+        <h1 className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
           Iniciar Sesión
         </h1>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">
           Ingresa tus credenciales para acceder
         </p>
       </div>
@@ -92,7 +92,7 @@ export function LoginForm() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label htmlFor="password">Contraseña</Label>
-            <a href="#" className="text-sm font-medium text-stone-900 dark:text-stone-50 hover:underline">
+            <a href="#" className="text-sm font-medium text-neutral-900 dark:text-neutral-50 hover:underline">
               ¿Olvidaste tu contraseña?
             </a>
           </div>
