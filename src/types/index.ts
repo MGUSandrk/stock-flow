@@ -1,13 +1,11 @@
 /**
  * Representa la estructura exacta de la tabla en base de datos..
  */
-export type Profile = {
-  id: string;
-  email: string;
-  full_name: string | null;
-  avatar_url: string | null;
-  updated_at: string | null;
-};
+export interface Profile {
+  name: string
+  email: string
+  avatar: string
+}
 
 /**
  * DTO para crear/actualizar un perfil.
@@ -20,12 +18,18 @@ export type CreateProfileDTO = {
   avatar_url?: string;
 };
 
-export type Product = {
-  id: string; // Usualmente string (UUID) en Supabase, o number. Ajusta según tu DB.
-  nombre: string;
-  precio: number;
-  stock: number; // o "cantidad"
-  categoria: string;
-  color: string;
-  // Puedes agregar más fácil en el futuro
+export interface Product {
+  id: string
+  name: string
+  category: string // O category_id si viene de BD, pero para UI usamos el nombre
+  costPrice: number // Precio de Compra
+  salePrice: number // Precio de Venta
+  stock: number
+  features: Record<string, string> 
+}
+
+export type ActionResponse<T = void> = {
+  success: boolean
+  data?: T
+  error?: string
 }

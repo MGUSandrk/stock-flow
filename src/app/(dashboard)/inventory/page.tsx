@@ -12,10 +12,10 @@ async function getProducts(): Promise<Product[]> {
   // await new Promise(resolve => setTimeout(resolve, 1000)); 
   
   return [
-    { id: "1", nombre: "Camiseta Básica", precio: 15000, stock: 120, categoria: "Ropa", color: "Blanco" },
-    { id: "2", nombre: "Jean Slim Fit", precio: 45000, stock: 4, categoria: "Ropa", color: "Azul" },
-    { id: "3", nombre: "Zapatillas Urban", precio: 89000, stock: 25, categoria: "Calzado", color: "Negro" },
-    { id: "4", nombre: "Gorra Trucker", precio: 12000, stock: 0, categoria: "Accesorios", color: "Rojo" },
+    { id: "1", name: "Camiseta Básica", costPrice: 15000, stock: 120, category: "Ropa" },
+    { id: "2", name: "Jean Slim Fit", costPrice: 45000, stock: 4, category: "Ropa"},
+    { id: "3", name: "Zapatillas Urban", costPrice: 89000, stock: 25, category: "Calzado" },
+    { id: "4", name: "Gorra Trucker", costPrice: 12000, stock: 0, category: "Accesorios"},
     // ... más datos
   ]
 }
@@ -24,19 +24,13 @@ export default async function InventoryPage() {
   const data = await getProducts();
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-1">
       {/* HEADER DE LA PÁGINA */}
       <div className="flex items-center justify-between">
         <div>
             <h1 className="text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50">Inventario</h1>
-            <p className="text-stone-500 dark:text-stone-400">Gestiona tus productos, precios y stock.</p>
+            <p className="text-stone-500 dark:text-stone-400">Gestiona tus productos, costPrices y stock.</p>
         </div>
-        <Link href="/dashboard/products/add">
-            <Button className="gap-2">
-                <PlusCircle className="h-4 w-4" />
-                Nuevo Producto
-            </Button>
-        </Link>
       </div>
 
       {/* LA TABLA POTENTE */}

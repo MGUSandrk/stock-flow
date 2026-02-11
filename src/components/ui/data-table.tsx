@@ -22,6 +22,8 @@ import {
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
+import { PlusCircle } from "lucide-react"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -53,7 +55,7 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       {/* TOOLBAR DE BÚSQUEDA */}
-      <div className="flex items-center py-4 gap-2">
+      <div className="flex items-center justify-between py-4 gap-2">
         <Input
           placeholder="Filtrar por nombre..."
           value={(table.getColumn("nombre")?.getFilterValue() as string) ?? ""}
@@ -63,6 +65,12 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />
         {/* Aquí podrías agregar el Select de Categoría usando table.getColumn("categoria")... */}
+        <Link href="/inventory/add-product" >
+          <Button className="gap-2" variant="outline">
+              <PlusCircle className="h-4 w-4" />
+              Nuevo Producto
+          </Button>
+        </Link>
       </div>
 
       {/* TABLA */}

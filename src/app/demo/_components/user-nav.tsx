@@ -25,7 +25,7 @@ export function UserNav({user}: {user: Profile}) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-white dark:bg-stone-950 border-stone-200 dark:border-stone-800" align="end" forceMount>
+      <DropdownMenuContent className="w-45 bg-white dark:bg-stone-950 border-stone-200 dark:border-stone-800" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{user.name}</p>
@@ -39,7 +39,7 @@ export function UserNav({user}: {user: Profile}) {
           <DropdownMenuItem className='cursor-pointer'>Perfil</DropdownMenuItem>
           <DropdownMenuItem className='cursor-pointer'>Facturación</DropdownMenuItem>
         </DropdownMenuGroup> */}
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator/>
         <DropdownMenuItem onClick={() => signOut()} className='cursor-pointer pb-3 pt-1'>
           Cerrar Sesión
         </DropdownMenuItem>

@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/utils/supabase/server';
+import { createClient } from '@/lib/utils/supabaseServer';
 import { Profile, CreateProfileDTO } from '@/types';
 import { AppError } from '@/lib/core/errors';
 

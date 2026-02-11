@@ -8,8 +8,9 @@ import {
   ShoppingCart 
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AuthService } from '@/lib/services/authService';
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   
   // Datos simulados (Mock)
   const metrics = {
@@ -17,14 +18,14 @@ export default function DashboardPage() {
     categories: 12,
     productsSold: 85,
   };
-
+  const name = "Usuario de Prueba"
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       
       {/* 1. TÍTULO DE BIENVENIDA */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-          Bienvenido a StockFlow
+          Bienvenido {name} 👋
         </h1>
         <p className="text-stone-500 dark:text-stone-400 mt-1">
           Resumen general de tu inventario y acciones rápidas.
@@ -79,7 +80,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {/* Acción 1: Ver Inventario */}
-        <Link href="/dashboard/inventory" className="group">
+        <Link href="/demo/inventory" className="group">
           <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-fuchsia-500 dark:hover:border-fuchsia-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-fuchsia-100 dark:group-hover:bg-fuchsia-900/50 transition-colors">
               <ShoppingBag className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400" />
@@ -90,7 +91,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Acción 2: Agregar Producto */}
-        <Link href="/dashboard/products/add" className="group">
+        <Link href="/demo/inventory/add-product" className="group">
           <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
               <PlusCircle className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
@@ -101,7 +102,7 @@ export default function DashboardPage() {
         </Link>
 
         {/* Acción 3: Realizar Venta */}
-        <Link href="/dashboard/sale" className="group">
+        <Link href="/demo/dashboard/sale" className="group">
           <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-green-500 dark:hover:border-green-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
               <ShoppingCart className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-green-600 dark:group-hover:text-green-400" />

@@ -11,10 +11,10 @@ import {
 } from 'lucide-react'; // Shadcn usa Lucide icons por defecto (son más limpios que Heroicons)
 import { FaKaaba } from 'react-icons/fa6';
 const sidebarItems = [
-  { name: 'Inicio', href: '/dashboard', icon: LayoutDashboard },
-  { name: 'Realizar venta', href: '/dashboard/sale', icon: ShoppingCart },
-  { name: 'Inventario', href: '/inventory', icon: Package },
-  { name: 'Agregar Producto', href: '/inventory/add-product', icon: PlusCircle },
+  { name: 'Inicio', href: '/demo/dashboard', icon: LayoutDashboard },
+  { name: 'Realizar venta', href: '/demo/dashboard/sale', icon: ShoppingCart },
+  { name: 'Inventario', href: '/demo/inventory', icon: Package },
+  { name: 'Agregar Producto', href: '/demo/inventory/add-product', icon: PlusCircle },
 ];
 
 
