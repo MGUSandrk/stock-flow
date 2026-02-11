@@ -29,7 +29,7 @@ export default async function DashboardPage() {
         <h1 className="text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
           Bienvenido {name} 👋
         </h1>
-        <p className="text-stone-500 dark:text-stone-400 mt-1">
+        <p className="text-neutral-500 dark:text-neutral-400 mt-1">
           Resumen general de tu inventario y acciones rápidas.
         </p>
       </div>
@@ -75,7 +75,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* 3. ACCIONES RÁPIDAS (Botones Grandes) */}
-      <h2 className="text-lg font-semibold text-stone-900 dark:text-stone-50 mt-4">
+      <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50 mt-4">
         Acciones Rápidas
       </h2>
       
@@ -87,8 +87,8 @@ export default async function DashboardPage() {
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-fuchsia-100 dark:group-hover:bg-fuchsia-900/50 transition-colors">
               <ShoppingBag className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400" />
             </div>
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-50">Ver Inventario</h3>
-            <p className="text-sm text-stone-500 text-center mt-2">Gestiona tu stock actual</p>
+            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">Ver Inventario</h3>
+            <p className="text-sm text-neutral-500 text-center mt-2">Gestiona tu stock actual</p>
           </div>
         </Link>
 
@@ -98,19 +98,19 @@ export default async function DashboardPage() {
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
               <PlusCircle className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
             </div>
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-50">Agregar Producto</h3>
-            <p className="text-sm text-stone-500 text-center mt-2">Registra nueva mercadería</p>
+            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">Agregar Producto</h3>
+            <p className="text-sm text-neutral-500 text-center mt-2">Registra nueva mercadería</p>
           </div>
         </Link>
 
         {/* Acción 3: Realizar Venta */}
         <Link href="/dashboard/sale" className="group">
-          <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-green-500 dark:hover:border-green-500 transition-all duration-300">
-            <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
-              <ShoppingCart className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-green-600 dark:group-hover:text-green-400" />
+          <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-md hover:border-green-500 dark:hover:border-green-500 transition-all duration-300">
+            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-full mb-4 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
+              <ShoppingCart className="w-8 h-8 text-neutral-500 dark:text-neutral-400 group-hover:text-green-600 dark:group-hover:text-green-400" />
             </div>
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-50">Realizar Venta</h3>
-            <p className="text-sm text-stone-500 text-center mt-2">Registrar salida de stock</p>
+            <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">Realizar Venta</h3>
+            <p className="text-sm text-neutral-500 text-center mt-2">Registrar salida de stock</p>
           </div>
         </Link>
 
