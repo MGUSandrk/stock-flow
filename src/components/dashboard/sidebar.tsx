@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils'; // Utilidad de Shadcn para combinar clases
+import { cn } from '@/core/utils/utils'; // Utilidad de Shadcn para combinar clases
 import { 
   LayoutDashboard, 
   ShoppingCart, 
@@ -14,7 +14,7 @@ const sidebarItems = [
   { name: 'Inicio', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Realizar venta', href: '/dashboard/sale', icon: ShoppingCart },
   { name: 'Inventario', href: '/inventory', icon: Package },
-  { name: 'Agregar Producto', href: '/inventory/add-product', icon: PlusCircle },
+  { name: 'Agregar Producto', href: '/add-product', icon: PlusCircle },
 ];
 
 
@@ -41,9 +41,9 @@ export function Sidebar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-3 py-2  transition-all hover:text-primary hover:bg-stone-100 dark:hover:bg-stone-800",
+                  "flex items-center gap-3 rounded-lg px-3 py-2  transition-all hover:text-primary hover:border",
                   isActive 
-                    ? "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50" 
+                    ? "bg-trasnparent border text-stone-900 dark:text-stone-50" 
                     : "text-muted-foreground"
                 )}
               >

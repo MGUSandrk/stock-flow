@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils'; // Utilidad de Shadcn para combinar clases
+import { cn } from '@/core/utils/utils'; // Utilidad de Shadcn para combinar clases
 import { 
   LayoutDashboard, 
   ShoppingCart, 
@@ -14,7 +14,7 @@ const sidebarItems = [
   { name: 'Inicio', href: '/demo/dashboard', icon: LayoutDashboard },
   { name: 'Realizar venta', href: '/demo/dashboard/sale', icon: ShoppingCart },
   { name: 'Inventario', href: '/demo/inventory', icon: Package },
-  { name: 'Agregar Producto', href: '/demo/inventory/add-product', icon: PlusCircle },
+  { name: 'Agregar Producto', href: '/demo/add-product', icon: PlusCircle },
 ];
 
 

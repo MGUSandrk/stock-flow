@@ -92,7 +92,7 @@ export async function validateSession() {
   const { data: { user }, error } = await supabase.auth.getUser()
 
   if (error || !user) {
-    return false // O false, según prefieras
+    throw new Error("CREDENTIALS_ERROR")// O false, según prefieras
   }
 
   return user // Devolvemos el usuario porque suele ser útil para el Action

@@ -7,7 +7,7 @@ export type ErrorType =
   | 'AUTH_ERROR'       // 401 Unauthorized / 403 Forbidden
   | 'NOT_FOUND'        // 404 Not Found
   | 'BUSINESS_ERROR'   // 422 Unprocessable Entity (Reglas de negocio)
-  | 'SYSTEM_ERROR';    // 500 Internal Server Error
+  | 'INTERNAL_SERVER_ERROR';    // 500 Internal Server Error
 
 /**
  * Clase centralizada de errores.
@@ -70,6 +70,6 @@ export class AppError extends Error {
    */
   static system(message: string) {
     // isOperational = false porque esto no debería pasar en flujo normal
-    return new AppError('SYSTEM_ERROR', message, false); 
+    return new AppError('INTERNAL_SERVER_ERROR', message, false); 
   }
 }

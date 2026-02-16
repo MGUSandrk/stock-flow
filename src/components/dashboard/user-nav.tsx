@@ -10,8 +10,8 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
-import { signOut } from '@/lib/resource/authResource';
-import { Profile } from '@/types';
+import { signOut } from '@/core/resource/AuthResource';
+import { Profile } from '@/core/utils/types';
 
 export function UserNav({user}: {user: Profile}) {
   const initials = user?.name?.substring(0, 2).toUpperCase() || 'U';

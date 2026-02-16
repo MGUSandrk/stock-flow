@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Sidebar } from './sidebar'; // Reutilizamos el Sidebar dentro del Sheet para móvil
 import { UserNav } from './user-nav'; // Crearemos esto abajo
 import { ThemeToggle } from '@/components/theme/theme-toggle'; // Crearemos esto para dark mode
-import { Profile } from '@/types';
+import { Profile } from '@/core/utils/types';
 
 export function DashboardHeader({user}: {user: Profile}) {
   return (

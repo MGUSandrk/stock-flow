@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { signUp } from '@/lib/resource/authResource' // Tu action nativo de registro
+import { signUp } from '@/core/resource/AuthResource' // Tu action nativo de registro
 
 // UI Components
 import { Input } from "@/components/ui/input"
@@ -43,19 +43,19 @@ export function SignUpForm() {
 
   return (
     // ESTILOS: Fondo oscuro semitransparente con efecto blur
-    <div className="relative flex flex-col space-y-6 w-full max-w-sm mx-auto p-8 
-                    bg-neutral-900/60 backdrop-blur-md 
-                    rounded-2xl border border-white/10 shadow-2xl">
+    <div className="relative flex flex-col space-y-6 w-full max-w-sm mx-auto px-4 sm:p-8
+                    sm:bg-neutral-900/60 backdrop-blur-md 
+                    rounded-2xl sm:border border-white/10 sm:shadow-2xl">
       
-      <div className="flex flex-col items-center space-y-2 text-center pt-2">
-        <div className="flex items-center gap-2 font-bold text-2xl text-white">
+      <div className="flex flex-col items-center space-y-2 text-center pt-20 sm:pt-2">
+        <div className="flex items-center gap-2 font-bold text-4xl sm:text-2xl text-white ">
           <FaKaaba className="text-blue-400" />
           <span>Stock Flow</span>
         </div>
-        <h1 className="text-xl font-semibold tracking-tight text-white">
+        <h1 className="text-2xl sm:text-xl font-semibold tracking-tight text-white max-sm:mt-2">
           Crea tu cuenta
         </h1>
-        <p className="text-sm text-neutral-400">
+        <p className="text-lg sm:text-sm text-neutral-400">
           Comienza a gestionar tu stock hoy
         </p>
       </div>
@@ -72,7 +72,7 @@ export function SignUpForm() {
 
         {/* Nombre Completo */}
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-neutral-200">Nombre Completo</Label>
+          <Label htmlFor="name" className="max-sm:text-md text-neutral-200">Nombre Completo</Label>
           <Input 
             id="name" 
             name="name"
@@ -80,13 +80,13 @@ export function SignUpForm() {
             placeholder="Juan Pérez"
             disabled={isPending}
             required
-            className="bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
+            className="max-sm:h-10 bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
           />
         </div>
 
         {/* Email */}
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-neutral-200">Email</Label>
+          <Label htmlFor="email" className="max-sm:text-md text-neutral-200">Email</Label>
           <Input 
             id="email" 
             name="email"
@@ -94,13 +94,13 @@ export function SignUpForm() {
             placeholder="tu@email.com" 
             disabled={isPending}
             required
-            className="bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
+            className="max-sm:h-10 bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
           />
         </div>
         
         {/* Contraseña */}
         <div className="space-y-2">
-          <Label htmlFor="password" className="text-neutral-200">Contraseña</Label>
+          <Label htmlFor="password" className="max-sm:text-md text-neutral-200">Contraseña</Label>
           <Input 
             id="password" 
             name="password"
@@ -108,13 +108,13 @@ export function SignUpForm() {
             placeholder="••••••••"
             disabled={isPending}
             required
-            className="bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
+            className="max-sm:h-10 bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
           />
         </div>
 
         {/* Confirmar Contraseña */}
         <div className="space-y-2">
-          <Label htmlFor="confirm-password" className="text-neutral-200">Confirmar Contraseña</Label>
+          <Label htmlFor="confirm-password" className="max-sm:text-md text-neutral-200">Confirmar Contraseña</Label>
           <Input 
             id="confirm-password" 
             name="confirm-password"
@@ -122,13 +122,13 @@ export function SignUpForm() {
             placeholder="••••••••"
             disabled={isPending}
             required
-            className="bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
+            className="max-sm:h-10 bg-neutral-800/50 border-white/10 text-white placeholder:text-neutral-500 focus-visible:ring-blue-400"
           />
         </div>
 
         <Button 
           type="submit" 
-          className="w-full bg-blue-500 hover:bg-blue-400 text-white transition-all font-semibold shadow-lg shadow-blue-500/20 mt-2" 
+          className="w-full max-sm:h-12 max-sm:text-lg bg-blue-500 hover:bg-blue-400 text-white transition-all font-semibold shadow-lg shadow-blue-500/20 mt-2" 
           disabled={isPending}
         >
           {isPending ? (
@@ -142,7 +142,7 @@ export function SignUpForm() {
         </Button>
       </form>
       
-      <p className="px-8 text-center text-sm text-neutral-400">
+      <p className="max-sm:h-12 max-sm:text-lgpx-8 text-center text-sm text-neutral-400">
         ¿Ya tienes cuenta?{' '}
         <Link href="/login" className="hover:text-white underline underline-offset-4 transition-colors">
           Inicia sesión

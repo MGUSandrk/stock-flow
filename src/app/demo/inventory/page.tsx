@@ -1,9 +1,8 @@
-import { DataTable } from "@/components/products/data-table";
-import { columns } from "@/components/products/columns";
-import { MOCK_PRODUCTS } from "@/components/products/mock-products";
+
+import { columns } from "@/components/products/table/columns";
+import { DataTable } from "@/components/products/table/data-table";
 
 export default async function InventoryPage() {
-  const data = MOCK_PRODUCTS
 
   return (
     <div className="flex flex-col gap-1">

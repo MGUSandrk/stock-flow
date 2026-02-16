@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { AuthService } from './lib/services/authService';
+import { AuthService } from './core/services/AuthService';
 
 export async function proxy(request: NextRequest) {
   console.log('Proxy middleware executed')
@@ -14,5 +14,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/dashboard',
+  matcher: ['/dashboard/:path*','/inventory/:path*'],
 }

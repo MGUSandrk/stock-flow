@@ -5,7 +5,7 @@ import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 export default function SignupPage() {
   return (
     // Contenedor principal: Fondo oscuro base + overflow hidden para los brillos
-    <div className="relative isolate min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-neutral-900 overflow-hidden">
+    <div className="relative isolate min-h-screen flex flex-col sm:justify-center sm:py-12 sm:px-6 lg:px-8 bg-neutral-900 overflow-hidden">
       
       {/* --- EFECTOS DE FONDO (GRADIENTES) --- */}
       {/* Mancha Superior (Azul/Amarillo) */}

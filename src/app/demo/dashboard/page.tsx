@@ -8,7 +8,7 @@ import {
   ShoppingCart 
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AuthService } from '@/lib/services/authService';
+import { AuthService } from '@/core/services/AuthService';
 
 export default async function DashboardPage() {
   
@@ -91,7 +91,7 @@ export default async function DashboardPage() {
         </Link>
 
         {/* Acción 2: Agregar Producto */}
-        <Link href="/demo/inventory/add-product" className="group">
+        <Link href="/demo/add-product" className="group">
           <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
               <PlusCircle className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />

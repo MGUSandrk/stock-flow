@@ -8,7 +8,7 @@ import {
   ShoppingCart 
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AuthService } from '@/lib/services/authService';
+import { AuthService } from '@/core/services/AuthService';
 
 export default async function DashboardPage() {
   
@@ -20,9 +20,9 @@ export default async function DashboardPage() {
   };
 
   const user = await AuthService.validateSession()
-  const name = user && user.user_metadata?.full_name.split(' ')[0] || "Usuario"
+  const name = user && user.user_metadata?.full_name?.split(' ')[0] || "Usuario"
   return (
-    <div className="flex flex-col gap-6">
+    <div className=" flex flex-col gap-6">
       
       {/* 1. TÍTULO DE BIENVENIDA */}
       <div>
@@ -83,7 +83,7 @@ export default async function DashboardPage() {
 
         {/* Acción 1: Ver Inventario */}
         <Link href="/inventory" className="group">
-          <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-fuchsia-500 dark:hover:border-fuchsia-500 transition-all duration-300">
+          <div className="flex flex-col items-center justify-center p-8 bg-transparent rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-fuchsia-500 dark:hover:border-fuchsia-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-fuchsia-100 dark:group-hover:bg-fuchsia-900/50 transition-colors">
               <ShoppingBag className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400" />
             </div>
@@ -93,8 +93,8 @@ export default async function DashboardPage() {
         </Link>
 
         {/* Acción 2: Agregar Producto */}
-        <Link href="/inventory/add-product" className="group">
-          <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300">
+        <Link href="/add-product" className="group">
+          <div className="flex flex-col items-center justify-center p-8 bg-transparent  rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300">
             <div className="p-4 bg-stone-100 dark:bg-stone-800 rounded-full mb-4 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
               <PlusCircle className="w-8 h-8 text-stone-500 dark:text-stone-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
             </div>
@@ -105,7 +105,7 @@ export default async function DashboardPage() {
 
         {/* Acción 3: Realizar Venta */}
         <Link href="/dashboard/sale" className="group">
-          <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-md hover:border-green-500 dark:hover:border-green-500 transition-all duration-300">
+          <div className="flex flex-col items-center justify-center p-8 bg-transparent rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-md hover:border-green-500 dark:hover:border-green-500 transition-all duration-300">
             <div className="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-full mb-4 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
               <ShoppingCart className="w-8 h-8 text-neutral-500 dark:text-neutral-400 group-hover:text-green-600 dark:group-hover:text-green-400" />
             </div>
