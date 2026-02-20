@@ -20,7 +20,6 @@ export function CreateOrganizationForm() {
   
       if (result?.error) {
         // setError(result.error)
-        console.error(result.error)
         setLoading(false)
       }
     }

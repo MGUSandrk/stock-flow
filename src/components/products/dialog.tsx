@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { Product } from "@/core/utils/types"
+import { BatchFeatures, Product } from "@/core/utils/types"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -24,7 +24,7 @@ export function FeaturesDialog({
 }: { 
   open: boolean; 
   onOpenChange: (open: boolean) => void; 
-  features: Record<string, string> 
+  features: BatchFeatures
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -94,7 +94,7 @@ export function EditProductDialog({
 
   const updatedProduct = {
     ...formData,
-    metadata: metadataAsObject
+    features: metadataAsObject
   };
 
   onSave(updatedProduct);
@@ -102,16 +102,16 @@ export function EditProductDialog({
 };
 
  useEffect(() => {
-  if (product && product.metadata) {
-    // Transformamos el objeto { Color: "Rojo" } -> [{ key: "Color", value: "Rojo" }]
-    const initialFeatures = Object.entries(product.metadata).map(([key, value]) => ({
-      key,
-      value: String(value)
-    }));
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setFeaturesList(initialFeatures);
-    setFormData(product); // Sincronizamos el resto del form
-  }
+  // if (product && product.features) {
+  //   // Transformamos el objeto { Color: "Rojo" } -> [{ key: "Color", value: "Rojo" }]
+  //   const initialFeatures = Object.entries(product.features).map(([key, value]) => ({
+  //     key,
+  //     value: String(value)
+  //   }));
+  //   // eslint-disable-next-line react-hooks/set-state-in-effect
+  //   setFeaturesList(initialFeatures);
+  //   setFormData(product); // Sincronizamos el resto del form
+  // }
 }, [product]);
 
   return (

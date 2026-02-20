@@ -1,4 +1,4 @@
-import { Product, Batch, ProductMetadata } from '@/core/utils/types';
+import { Product, Batch } from '@/core/utils/types';
 import { createClient } from '../utils/supabase';
 import { organizationService } from './OrganizationService';
 import { AuthService } from './AuthService';
@@ -6,28 +6,17 @@ import { UserService } from './UserService';
 
 export const productService = {
   async createWithBatch(
-    productData: {
-      name: string;
-      sku?: string;
-      category_id?: string;
-      sale_price: number;
-      metadata: ProductMetadata; // Tipado estricto
-    }, 
+    productData: Product,
     batchData: Batch
   ): Promise<Product> { // Retorno tipado
 
     const supabase = await createClient()
 
-    const user = await AuthService.validateSession()
-
-    const organization = await organizationService.getOrganizationByUser(user.id)
+    await AuthService.validateSession()
     
     const { data: product, error: pError } = await supabase
       .from('products')
-      .insert([{
-        ...productData,
-        organization_id: organization.id
-      }])
+      .insert([{...productData,}])
       .select()
       .single();
 
@@ -37,26 +26,24 @@ export const productService = {
       const { error: bError } = await supabase
         .from('batches')
         .insert([{
-          product_id: product.id,
-          organization_id: organization.id,
-          purchase_price: batchData.purchase_price,
+          product_id: product.id, 
+          purchase_price: batchData.purchase_price, 
           initial_quantity: batchData.initial_quantity,
-          current_quantity: batchData.initial_quantity,
+          current_quantity: batchData.initial_quantity, 
           expiration_date: batchData.expiration_date,
+          features: batchData.features
         }]);
 
-      if (bError) throw bError;
-    }
+      if (bError) throw bError;}
 
     return product as Product;
   },
 
+
   async getAllWithBatches() {
     const supabase = await createClient()
 
-    const user = await AuthService.validateSession()
-
-    const organization = await organizationService.getOrganizationByUser(user.id)
+    await AuthService.validateSession()
 
     const { data, error } = await supabase
       .from('products')
@@ -65,10 +52,8 @@ export const productService = {
         categories(name),
         batches(*)
       `)
-      .eq('organization_id', organization.id)
       .order('created_at', { ascending: false });
 
-      console.log(error)
     if (error) throw error;
 
     // Mapeo para facilitar el uso en la tabla
@@ -81,22 +66,19 @@ export const productService = {
         category: product.categories?.name || 'Sin categoría',
         sale_price : product.sale_price,
         stock: totalStock,
-        batches: batches // Los enviamos para el despliegue
+        batches: batches 
       };
     });
   },
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  async createBatche(batchData : any){
+
+  async createBatch(batchData : Batch){
     try{
       const supabase = await createClient()
-      const user = await AuthService.validateSession()
-    // 1. Obtener org_id del perfil
-      const organization = await organizationService.getOrganizationByUser(user.id)
+      await AuthService.validateSession()
       const { error } = await supabase.from('batches').insert([{
       ...batchData,
-      organization_id: organization.id,
-      current_quantity: batchData.initial_quantity // El stock inicial es el actual al crear
+      current_quantity: batchData.initial_quantity 
       }])
       if(error){
         throw new Error("VALIDATION_ERROR")

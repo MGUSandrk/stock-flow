@@ -5,14 +5,9 @@ import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
-  useReactTable,
-  SortingState,
-  ColumnFiltersState,
   ExpandedState,
   getExpandedRowModel,
+  useReactTable,
 } from "@tanstack/react-table"
 import {
   Table,
@@ -22,17 +17,24 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Batch, BatchFeatures, Product } from "@/core/utils/types"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import Link from "next/link"
-import { PlusCircle } from "lucide-react"
+import { useState } from "react"
+import { FeaturesDialog } from "../dialog"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-  const [expanded, setExpanded] = React.useState<ExpandedState>({})
+  const [expanded, setExpanded] = useState<ExpandedState>({})
+  const [featureModalOpen, setFeatureModalOpen] = useState(false)
+  const [selectedFeatures, setSelectedFeatures] = useState<BatchFeatures>({})
+
+  const handleOpenFeatures = (features : BatchFeatures) => {
+  setSelectedFeatures(features || {}) 
+  setFeatureModalOpen(true)
+  }
   
   const table = useReactTable({
     data,
@@ -74,23 +76,27 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                   {/* FILA DESPLEGABLE DE LOTES */}
                   {row.getIsExpanded() && (
                     <TableRow className="bg-muted/30 hover:bg-muted/30">
-                      <TableCell colSpan={columns.length} className="p-3">
+                      <TableCell colSpan={(columns.length)} className="p-3">
                         <div className="rounded-lg border bg-background p-4 shadow-inner">
-                          <div className="grid grid-cols-4 gap-3 text-sm">
+                          <div className="grid grid-cols-5 gap-3 text-sm">
                             <div className="font-semibold">Fecha Ingreso</div>
                             <div className="font-semibold text-center">Costo Compra</div>
                             <div className="font-semibold text-center">Stock Inicial</div>
                             <div className="font-semibold text-center ">Stock Actual</div>
-                            
-                            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                            {(row.original as any).batches.map((batch: any) => (
+                            <div className="font-semibold text-center ">Caracteristicas</div>
+                            {(row.original as Product).batches?.map((batch: Batch) => (
                               <React.Fragment key={batch.id}>
                                 <div className="text-muted-foreground">
-                                  {new Date(batch.created_at).toLocaleDateString()}
+                                  {batch.created_at ? new Date(batch.created_at).toLocaleDateString() : "N/A"}
                                 </div>
                                 <div className="text-center">${batch.purchase_price}</div>
                                 <div className="text-center text-muted-foreground">{batch.initial_quantity}</div>
                                 <div className="text-center font-bold">{batch.current_quantity}</div>
+                                <div className="text-center">
+                                  <Button variant="outline" size="sm"  onClick={() => handleOpenFeatures(batch.features)}>
+                                    Ver
+                                  </Button>
+                                </div>
                               </React.Fragment>
                             ))}
                           </div>
@@ -106,6 +112,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           </TableBody>
         </Table>
       </div>
+      <FeaturesDialog
+        open={featureModalOpen}
+        onOpenChange={setFeatureModalOpen}
+        features={selectedFeatures} 
+      />
     </div>
   )
 }

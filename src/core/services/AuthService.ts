@@ -21,7 +21,6 @@ export const AuthService = {
         },},})
 
     if (error) {
-      console.error("SignUp Error:", error)
       if (error.message.includes("User already registered")) throw new Error("USER_EXISTS")
       if (error.message.includes("Password")) throw new Error("WEAK_PASSWORD")
       throw new Error("SERVER_ERROR")}

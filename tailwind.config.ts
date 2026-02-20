@@ -1,12 +1,8 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
-  darkMode: ["class"], // <--- ESTA LÍNEA ES OBLIGATORIA PARA next-themes
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  darkMode: "class", // <--- ESTA LÍNEA ES OBLIGATORIA PARA next-themes
   content: [
     // ESCÁNER DE ARCHIVOS:
     // Le decimos a Tailwind: "Mira en src, en cualquier subcarpeta, 
@@ -28,8 +24,7 @@ const config: Config = {
     },
   },
   plugins: [
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("tailwindcss-animate")
+    tailwindcssAnimate
   ],
 };
 export default config;

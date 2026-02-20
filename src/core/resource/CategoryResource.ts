@@ -22,6 +22,5 @@ export async function createCategoryAction(name: string): Promise<ActionResponse
     revalidatePath('/dashboard/products')// Para refrescar selectores si es necesario
     return { success: true, data: newCategory }
   } catch (e: any) {
-    console.log(e.message)
     return { success: false, error: e.message }}
 }

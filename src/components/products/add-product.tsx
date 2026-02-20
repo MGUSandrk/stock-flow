@@ -27,7 +27,7 @@ import {
 
 // Actions & Types
 import { createProductAction } from '@/core/resource/ProductResource'
-import { ProductMetadata } from '@/core/utils/types'
+import { BatchFeatures} from '@/core/utils/types'
 import { createCategoryAction, getCategoriesAction } from '@/core/resource/CategoryResource'
 
 export function ProductForm() {
@@ -75,20 +75,20 @@ export function ProductForm() {
     
     const formData = new FormData(e.currentTarget)
     
-    const metadata: ProductMetadata = features.reduce((acc, curr) => {
+    const featuresList: BatchFeatures = features.reduce((acc, curr) => {
       if (curr.key.trim()) acc[curr.key.trim()] = curr.value
       return acc
-    }, {} as ProductMetadata)
+    }, {} as BatchFeatures)
 
-    // Inyectamos la metadata y la categoría seleccionada al FormData
-    formData.append('features', JSON.stringify(metadata))
+    // Inyectamos la features y la categoría seleccionada al FormData
+    formData.append('features', JSON.stringify(featuresList))
     formData.append('category_id', selectedCategory)
 
     const result = await createProductAction(formData)
 
     if (result.success) {
+      console.log("redireccion inventario")
       router.push('/inventory')
-      router.refresh()
     } else {
       alert("Error: " + result.error)
       setLoading(false)
@@ -153,7 +153,7 @@ export function ProductForm() {
         </Card>
 
         {/* 2. LOTE INICIAL */}
-        <Card className="border-l-4 border-l-primary">
+        <Card className="border-l-primary">
           <CardContent className="pt-6 space-y-4">
             <div className="flex items-center gap-2">
                 <h3 className="text-sm font-semibold tracking-wider text-primary">Lote Inicial</h3>
@@ -178,12 +178,7 @@ export function ProductForm() {
                 </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* 3. CARACTERÍSTICAS DINÁMICAS */}
-        <Card>
-          <CardContent className="pt-6 space-y-4">
+            {/* FEATURES */}
             <div className="flex items-center justify-between">
               <Label className="text-base font-semibold">Características Específicas</Label>
               <Button type="button" variant="outline" size="sm" onClick={addFeature}>

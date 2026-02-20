@@ -17,6 +17,7 @@ import {
 import { useState } from "react"
 import { ChevronDown, ChevronRight } from "lucide-react"
 import { AddBatchDialog, EditProductDialog, FeaturesDialog } from "../dialog"
+import { createBatchAction } from "@/core/resource/ProductResource"
 
 export const columns: ColumnDef<Product>[] = [
   
@@ -85,29 +86,28 @@ export const columns: ColumnDef<Product>[] = [
     return <div className="text-center font-medium">{formatted}</div>;
   },
   },
-  {
-    accessorKey: "metadata",
-    header: () => <div className="text-center font-extrabold">Caracteristicas</div>,
-    cell: ({ row }) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const [featureModalOpen, setFeatureModalOpen] = useState(false)
-      const features = row.getValue("metadata") as Record<string, string>
-      console.log("Features:", features) // Debug: Verificar el contenido de features
-      return (
-        <>
-          <div className="flex justify-center">
-            <Button variant="outline" size="sm"  onClick={() => setFeatureModalOpen(true)}>
-              Ver
-            </Button>
-          </div>
-          <FeaturesDialog
-              open={featureModalOpen}
-              onOpenChange={setFeatureModalOpen}
-              features={features} />
-        </>
-      )
-    }
-  },
+  // {
+  //   accessorKey: "features",
+  //   header: () => <div className="text-center font-extrabold">Caracteristicas</div>,
+  //   cell: ({ row }) => {
+  //     // eslint-disable-next-line react-hooks/rules-of-hooks
+  //     const [featureModalOpen, setFeatureModalOpen] = useState(false)
+  //     const features = row.getValue("features") as Record<string, string>
+  //     return (
+  //       <>
+  //         <div className="flex justify-center">
+  //           <Button variant="outline" size="sm"  onClick={() => setFeatureModalOpen(true)}>
+  //             Ver
+  //           </Button>
+  //         </div>
+  //         <FeaturesDialog
+  //             open={featureModalOpen}
+  //             onOpenChange={setFeatureModalOpen}
+  //             features={features} />
+  //       </>
+  //     )
+  //   }
+  // },
   {
     id: "actions",
     cell: ({ row }) => {

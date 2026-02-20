@@ -11,8 +11,7 @@ export const organizationService = {
       .insert([{ name: data.name, slug: data.slug }])
       .select()
       .single();
-
-    console.log("ORG CREATE RESULT", { org, orgError })
+      
     if (orgError) throw new Error("Error al crear la organización");
 
     // 2. Asociar al usuario como ADMIN de esa organización

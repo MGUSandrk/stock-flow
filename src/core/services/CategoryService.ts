@@ -25,8 +25,7 @@ export const categoryService = {
       .insert([{ name : name, organization_id: organization.id }])
       .select()
       .single();
-
-    console.log(error)
+      
     if (error) throw error;
     return data;
   }
