@@ -1,6 +1,8 @@
 # 📦 StockFlow
 
-**StockFlow* es un sistema de gestión de inventarios inteligente diseñado para el control de stock mediante el método **FIFO** (First-In, First-Out) y trazabilidad por **Lotes (Batches)**. 
+link: https://stock-flow-lilac.vercel.app/
+
+**StockFlow** es un sistema de gestión de inventarios inteligente diseñado para el control de stock mediante el método **FIFO** (First-In, First-Out) y trazabilidad por **Lotes (Batches)**. 
 
 Este proyecto está optimizado para entornos multi-empresa, donde la seguridad y la integridad de los datos son la prioridad.
 
