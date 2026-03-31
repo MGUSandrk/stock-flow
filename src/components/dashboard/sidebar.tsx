@@ -7,9 +7,8 @@ import {
   LayoutDashboard, 
   ShoppingCart, 
   Package, 
-  PlusCircle
-} from 'lucide-react'; // Shadcn usa Lucide icons por defecto (son más limpios que Heroicons)
-import { FaKaaba } from 'react-icons/fa6';
+  PlusCircle,
+} from 'lucide-react';
 const sidebarItems = [
   { name: 'Inicio', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Realizar venta', href: '/dashboard/sale', icon: ShoppingCart },
@@ -26,7 +25,7 @@ export function Sidebar() {
       {/* HEADER DEL SIDEBAR */}
       <div className="flex h-14 items-center border-b px-4 lg:h-12.5 lg:px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <FaKaaba className="h-6 w-6 text-stone-900 dark:text-stone-50" />
+          <LayoutDashboard className="h-6 w-6 text-stone-900 dark:text-stone-50" />
           <span className="text-lg font-bold text-stone-900 dark:text-stone-50">Stock Flow</span>
         </Link>
       </div>

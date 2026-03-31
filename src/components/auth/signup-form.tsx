@@ -8,8 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AlertCircle, Loader2 } from "lucide-react"
-import { FaKaaba } from "react-icons/fa"
+import { AlertCircle, LayoutDashboard, Loader2 } from "lucide-react"
 import Link from 'next/link'
 
 export function SignUpForm() {
@@ -33,12 +32,14 @@ export function SignUpForm() {
         return
     }
 
-    const result = await signUp(formData)
+     alert("Función de registro dada de baja")
 
-    if (result?.error) {
-      setError(result.error)
-      setIsPending(false)
-    }
+    // const result = await signUp(formData)
+
+    // if (result?.error) {
+    //   setError(result.error)
+    //   setIsPending(false)
+    // }
   }
 
   return (
@@ -49,7 +50,7 @@ export function SignUpForm() {
       
       <div className="flex flex-col items-center space-y-2 text-center pt-20 sm:pt-2">
         <div className="flex items-center gap-2 font-bold text-4xl sm:text-2xl text-white ">
-          <FaKaaba className="text-blue-400" />
+          <LayoutDashboard className="text-blue-400" />
           <span>Stock Flow</span>
         </div>
         <h1 className="text-2xl sm:text-xl font-semibold tracking-tight text-white max-sm:mt-2">

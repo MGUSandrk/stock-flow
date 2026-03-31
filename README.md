@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 StockFlow
 
-## Getting Started
+**StockFlow* es un sistema de gestión de inventarios inteligente diseñado para el control de stock mediante el método **FIFO** (First-In, First-Out) y trazabilidad por **Lotes (Batches)**. 
 
-First, run the development server:
+Este proyecto está optimizado para entornos multi-empresa, donde la seguridad y la integridad de los datos son la prioridad.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Funcionalidades Actuales
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Dashboard de Métricas:** Resumen en tiempo real del estado del inventario, cantidad de categorías y productos activos.
+* **Gestión de Productos:** Creación y edición de productos con categorías dinámicas y precios de venta globales.
+* **Control por Lotes (Batches):** * Registro detallado de entradas de mercadería (Precio de compra, stock inicial, stock actual).
+    * Gestión de fechas de vencimiento.
+* **Características Dinámicas por Lote:** Cada entrada de stock soporta metadatos personalizados (Color, Talle, Nro de Serie, etc.) mediante campos **JSONB** de PostgreSQL.
+* **Automatización de Datos:** Los registros se vinculan automáticamente a la organización del usuario autenticado mediante **Database Triggers**, eliminando errores manuales en el frontend.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Stack Tecnológico
 
-To learn more about Next.js, take a look at the following resources:
+* **Framework:** [Next.js 15](https://nextjs.org/) (App Router & Turbopack).
+* **Base de Datos & Auth:** [Supabase](https://supabase.com/) (PostgreSQL).
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/).
+* **Componentes UI:** [Shadcn/UI](https://ui.shadcn.com/) (Radix UI).
+* **Iconografía:** [Lucide React](https://lucide.dev/).
+* **Tablas Potentes:** [TanStack Table v8](https://tanstack.com/table/v8) con soporte para filas expandibles.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

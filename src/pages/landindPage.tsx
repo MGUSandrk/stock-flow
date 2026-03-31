@@ -10,7 +10,7 @@ import {
   CloudIcon, 
   ClockIcon,
 } from '@heroicons/react/20/solid'
-import { FaKaaba } from 'react-icons/fa6'
+import { LayoutDashboard } from 'lucide-react'
 
 // --- DATOS ACTUALIZADOS ---
 const navigation = [
@@ -58,7 +58,7 @@ export default function LandingPage() {
             <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
               <span className="sr-only">Stock Flow</span>
               <span className="flex items-center gap-2 text-white font-bold text-xl">
-                <FaKaaba className="text-blue-400"/>Stock Flow
+                <LayoutDashboard className="text-blue-400"/>Stock Flow
               </span>
             </Link>
           </div>
@@ -72,13 +72,13 @@ export default function LandingPage() {
               <Bars3Icon aria-hidden="true" className="size-6" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+          {/* <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-white hover:text-emerald-300 transition-colors">
                 {item.name}
               </a>
             ))}
-          </div>
+          </div> */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link href="/login" className="text-sm/6 font-semibold text-white cursor-pointer hover:text-blue-300 transition-colors">
               Iniciar Sesion <span aria-hidden="true">&rarr;</span>
@@ -94,7 +94,7 @@ export default function LandingPage() {
               <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
                 <span className="sr-only">Stock Flow</span>
                 <span className="flex items-center gap-2 text-white font-bold text-xl">
-                    <FaKaaba className="text-blue-400"/>
+                    <LayoutDashboard className="text-blue-400"/>
                 </span>
               </Link>
               <button

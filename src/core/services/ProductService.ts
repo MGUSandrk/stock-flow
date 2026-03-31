@@ -1,8 +1,6 @@
 import { Product, Batch } from '@/core/utils/types';
 import { createClient } from '../utils/supabase';
-import { organizationService } from './OrganizationService';
 import { AuthService } from './AuthService';
-import { UserService } from './UserService';
 
 export const productService = {
   async createWithBatch(
